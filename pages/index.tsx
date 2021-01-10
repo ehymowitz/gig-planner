@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from 'next/head'
 import { Box } from "@chakra-ui/react"
 
@@ -13,7 +14,6 @@ export default function Home() {
       <Box bg="gray.400" w="100%" h="100vh" p={4} color="white">
         Menu on the left, content on the right
       </Box>
-
     </div>
   )
 }
