@@ -46,7 +46,7 @@ const LoginForm = () => {
             isLoading={props.isSubmitting}
             type="submit"
           >
-            Add Form
+            Add Gig
           </Button>
         </Form>
       )}

@@ -1,42 +1,23 @@
 import React from 'react'
-import Head from 'next/head'
-import {
-  Box,
-  Button,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  useDisclosure,
-} from "@chakra-ui/react"
 import LoginForm from '../components/login-form'
+import CustomModal from '../components/custom-modal'
+import Layout from '../components/layout'
+import { Heading } from '@chakra-ui/react'
 
 
 export default function Home() {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-
   return (
     <div>
-      <Head>
-        <title>Gig Planner</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <CustomModal>
+        <LoginForm />
+      </CustomModal>
 
-      <Modal isOpen={true} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
-          <ModalBody>
-            <LoginForm />
-          </ModalBody>
-        </ModalContent>
-      </Modal>
+      <Layout>
+        <Heading>
+          Dashboard
+        </Heading>
+      </Layout>
 
-      {
-        // put ui here (behind modal)
-      }
     </div>
   )
 }
