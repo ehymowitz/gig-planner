@@ -40,6 +40,14 @@ const LoginForm = () => {
           >
             Submit
           </Button>
+          <Button
+            mt={4}
+            colorScheme="teal"
+            isLoading={props.isSubmitting}
+            type="submit"
+          >
+            Add Form
+          </Button>
         </Form>
       )}
     </Formik>
