@@ -4,8 +4,10 @@ import guestSchema from './guest'
 import moneySchema from './money'
 import timingSchema from './timing'
 import venueSchema from './venue'
+import { model } from 'mongoose';
 
 const gigSchema = new Schema ({
+  name: String,
   band: bandSchema,
   timing: timingSchema,
   money: moneySchema,
@@ -13,4 +15,6 @@ const gigSchema = new Schema ({
   venue: venueSchema,
 })
 
-export default gigSchema
+const gigModel = model('gig', gigSchema)
+
+export default gigModel
