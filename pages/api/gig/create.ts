@@ -4,7 +4,7 @@ import connect from "../../../utils/db";
 export default async function (req: NextApiRequest, res: NextApiResponse ) {
   try {
     const {db} = await connect();
-    const { name: name } = req.body
+    const { name } = req.body
 
     db.createCollection(name)
 

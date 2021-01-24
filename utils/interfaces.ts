@@ -13,6 +13,10 @@ export interface guestSchema {
   band: string,
 };
 
+export interface gigSchema {
+  name: string
+}
+
 export interface moneySchema {
   travel: moneyType[],
   door: moneyType[],
