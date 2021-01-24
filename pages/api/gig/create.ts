@@ -1,17 +1,15 @@
-import connect from "../../../utils/db";
 import { NextApiRequest, NextApiResponse } from "next";
-import gigModel from "../../../database/gig";
-
-connect();
+import connect from "../../../utils/db";
 
 export default async function (req: NextApiRequest, res: NextApiResponse ) {
   try {
-    const gig = new gigModel({name: 'test'});
-    gig.save(function (err: any) {
-      if (err) return console.log(err);
-    });
+    const {db} = await connect();
+    const { name: name } = req.body
 
-    res.status(201).json({ success: true });
+    db.createCollection(name)
+
+    res.status(201)
+    res.json({name: name})
 
   } catch(e) {
     res.status(500)

@@ -12,7 +12,7 @@ const CustomModal = ({ children }) => {
   const { isOpen, onClose } = useDisclosure()
 
   return(
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={!isOpen} onClose={onClose}>
       <ModalOverlay/>
       <ModalContent>
       <ModalHeader>Modal Title</ModalHeader>
