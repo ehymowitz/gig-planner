@@ -10,8 +10,22 @@ export async function createGig(gigName: gigSchema) {
     },
     body: JSON.stringify(gigName),
   });
-  const data = await response.json()
-  return data
+  const data = await response.json();
+  return data.name;
 }
 
 // createGig({name: 'test'})
+
+export async function gigLogin(gigName: gigSchema) {
+  const response = await fetch("/api/gig/login", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await response.json();
+  const loggedInAs = data[data.indexOf(gigName.name)];
+  return loggedInAs;
+}
+
+// gigLogin({name: 'test'})

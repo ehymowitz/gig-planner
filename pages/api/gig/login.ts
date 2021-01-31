@@ -4,14 +4,15 @@ import connect from "../../../utils/db";
 export default async function (req: NextApiRequest, res: NextApiResponse) {
   try {
     const { db } = await connect();
-    const { name } = req.body;
 
-    db.createCollection(name);
+    const collections = await db.listCollections().toArray();
 
+    const gigNames = collections.map((collection) => collection.name);
+
+    res.json(gigNames);
     res.status(201);
-    res.json({ name: name });
   } catch (e) {
     res.status(500);
-    res.json({ error: "Couldn't Create" });
+    res.json({ error: "Couldn't Read" });
   }
 }

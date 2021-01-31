@@ -4,24 +4,22 @@ import {
   ModalContent,
   ModalHeader,
   ModalOverlay,
-  useDisclosure
-} from '@chakra-ui/react'
-import React from 'react'
+  useDisclosure,
+} from "@chakra-ui/react";
+import React from "react";
 
-const CustomModal = ({ children }) => {
-  const { isOpen, onClose } = useDisclosure()
+const CustomModal = ({ children, title }) => {
+  const { isOpen, onClose } = useDisclosure();
 
-  return(
+  return (
     <Modal isOpen={!isOpen} onClose={onClose}>
-      <ModalOverlay/>
+      <ModalOverlay />
       <ModalContent>
-      <ModalHeader>Modal Title</ModalHeader>
-        <ModalBody>
-          {children}
-        </ModalBody>
+        <ModalHeader>{title}</ModalHeader>
+        <ModalBody>{children}</ModalBody>
       </ModalContent>
     </Modal>
-  )
-}
+  );
+};
 
-export default CustomModal
+export default CustomModal;
